@@ -3,4 +3,12 @@ public class Mahasiswa10 {
     public String nama;
     public String kelas;
     public float ipk;
+
+    public void cetakInfo() {
+        System.out.println("NIM     :"+nim);
+        System.out.println("NIM     :"+nama);
+        System.out.println("NIM     :"+kelas);
+        System.out.println("NIM     :"+ipk);
+        System.out.println("-------------------------------------");
+    }
 }
