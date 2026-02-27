@@ -34,5 +34,8 @@ public class DosenDemo10 {
 
             i++;
         }
+
+        System.out.println("\n===Data Semua Dosen===");
+        DataDosen10.dataSemuaDosen(arrayOfDosen);
     }
 }
