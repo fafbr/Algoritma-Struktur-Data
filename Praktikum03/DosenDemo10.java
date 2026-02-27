@@ -37,5 +37,7 @@ public class DosenDemo10 {
 
         System.out.println("\n===Data Semua Dosen===");
         DataDosen10.dataSemuaDosen(arrayOfDosen);
+        System.out.println("\n===Data Jumlah Dosen Berdasarkan Jenis Kelamin===");
+        DataDosen10.jumlahDosenPerJenisKelamin(arrayOfDosen);
     }
 }

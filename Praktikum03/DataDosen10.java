@@ -11,4 +11,19 @@ public class DataDosen10 {
             i++;
         }
     }
+
+    public static void jumlahDosenPerJenisKelamin(Dosen10[] arrayOfDosen) {
+        int pria = 0;
+        int wanita = 0;
+
+        for(Dosen10 dosen: arrayOfDosen) {
+            if (dosen.jenisKelamin) {
+                pria++;
+            } else{
+                wanita++;
+            }
+        }
+        System.out.println("Jumlah Dosen Pria   : "+pria);
+        System.out.println("Jumlah Dosen Wanita : "+wanita);
+    }
 }
