@@ -39,5 +39,11 @@ public class DosenDemo10 {
         DataDosen10.dataSemuaDosen(arrayOfDosen);
         System.out.println("\n===Data Jumlah Dosen Berdasarkan Jenis Kelamin===");
         DataDosen10.jumlahDosenPerJenisKelamin(arrayOfDosen);
+        System.out.println("\n===Rata-rata Usia Berdasarkan Jenis Kelamin===");
+        DataDosen10.rerataUsiaDosenPengajar(arrayOfDosen);
+        System.out.println("\n===Info Dosen Paling Tua===");
+        DataDosen10.infoDosenPalingTua(arrayOfDosen);
+        System.out.println("\n===Info Dosen Paling Muda===");
+        DataDosen10.infoDosenPalingMuda(arrayOfDosen);
     }
 }
