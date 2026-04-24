@@ -44,6 +44,7 @@ public class MainPinjamBuku {
             }
         }
         if (found) {
+            System.out.println("[Binary Search] ditemukan:");
             int start = mid;
             int end = mid;
             while (start > 0 && arr[start - 1].mhs.nim.equals(targetNim)) {
@@ -92,6 +93,10 @@ public class MainPinjamBuku {
             System.out.println(" 3. Tampilkan Peminjaman");
             System.out.println(" 4. Tampilkan Urutkan berdasarkan Denda");
             System.out.println(" 5. Tampilkan Cari berdasarkan NIM");
+
+            System.out.println(" 6. Tambah Data Peminjaman Baru");
+            System.out.println(" 7. Tampilkan Statitik");
+
             System.out.println(" 0. Keluar");
             System.out.print("Pilih: ");
             menu = sc.nextInt();
@@ -126,7 +131,7 @@ public class MainPinjamBuku {
                     break;
                     
                 case 4:
-                    System.out.println("\nSetelah diurutkan (Denda terbesar):");
+                    System.out.println("\nSetelah diurutkan dengan Insertion Sort (Denda terbesar):");
                     insertionSortDenda(daftarPeminjaman);
                     System.out.println("----------------------------------------------------------------------");
                     System.out.printf("| %-7s | %-15s | %-11s | %-9s | %-10s |\n", "Nama", "Buku", "Lama Pinjam", "Terlambat", "Denda");
@@ -138,14 +143,81 @@ public class MainPinjamBuku {
                 case 5:
                     System.out.print("\nMasukkan NIM: ");
                     String cariNIM = sc.nextLine();
-                    
+                    System.out.println("[Binary Search] ditemukan: ");
                     System.out.println("----------------------------------------------------------------------");
                     System.out.printf("| %-7s | %-15s | %-11s | %-9s | %-10s |\n", "Nama", "Buku", "Lama Pinjam", "Terlambat", "Denda");
                     System.out.println("----------------------------------------------------------------------");
                     binarySearchNIM(daftarPeminjaman, cariNIM);
                     System.out.println("----------------------------------------------------------------------");
                     break;
+
+                case 6:
+                    System.out.print("Masukkan NIM: ");
+                    String inNim = sc.nextLine();
+
+                    Mahasiswa mhsBaru = null;
+                    for (Mahasiswa m : daftarMhs) {
+                        if (m.nim.equals(inNim)) {
+                            mhsBaru = m; 
+                            break;
+                        }
+                    }
+                    if (mhsBaru == null) {
+                        System.out.println("NIM tidak ditemukan!");
+                        break; 
+                    }
+
+                    System.out.print("Masukkan Kode Buku: ");
+                    String inKode = sc.nextLine();
                     
+                    Buku bukuBaru = null;
+                    for (Buku b : daftarBuku) {
+                        if (b.kodeBuku.equalsIgnoreCase(inKode)) {
+                            bukuBaru = b;
+                            break;
+                        }
+                    }
+                    if (bukuBaru == null) {
+                        System.out.println("Kode buku tidak ditemukan!");
+                        break; 
+                    }
+
+                    System.out.print("Masukkan Lama Pinjam: ");
+                    int inLama = sc.nextInt();
+                    sc.nextLine();
+
+                    Peminjaman pemBaru = new Peminjaman(mhsBaru, bukuBaru, inLama);
+
+                    Peminjaman[] tempArray = new Peminjaman[daftarPeminjaman.length + 1];
+                    for (int i = 0; i < daftarPeminjaman.length; i++) {
+                        tempArray[i] = daftarPeminjaman[i];
+                    }
+                    tempArray[tempArray.length - 1] = pemBaru;
+                    daftarPeminjaman = tempArray; 
+
+                    System.out.println("Data peminjaman berhasil ditambahkan!");
+                    break;
+
+                case 7:
+                    int totDendaKeseluruhan = 0;
+                    int jmlTerlambat = 0;
+                    int jmlTepatWaktu = 0;
+
+                    for (Peminjaman p : daftarPeminjaman) {
+                        totDendaKeseluruhan += p.denda;
+                        if (p.terlambat > 0) {
+                            jmlTerlambat++;
+                        } else {
+                            jmlTepatWaktu++;
+                        }
+                    }
+
+                    System.out.println("\n=== STATISTIK PEMINJAMAN ===");
+                    System.out.println("Total Denda Keseluruhan: Rp " + totDendaKeseluruhan);
+                    System.out.println("Jumlah Peminjaman Terlambat: " + jmlTerlambat);
+                    System.out.println("Jumlah Peminjaman Tepat Waktu: " + jmlTepatWaktu);
+                    break;
+
                 case 0:
                     break;
                 default:
