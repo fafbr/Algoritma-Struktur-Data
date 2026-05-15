@@ -13,6 +13,7 @@ public class DoubleLinkedListMain10 {
             System.out.println("4. Hapus Data di Awal");
             System.out.println("5. Hapus Data di Akhir");
             System.out.println("6. Tampilkan Data");
+            System.out.println("7. Tampilkan Data Dari Belakang");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu : ");
             pilihan = sc.nextInt(); sc.nextLine();
@@ -42,6 +43,9 @@ public class DoubleLinkedListMain10 {
                 case 6:
                     list.print();
                     break;
+                case 7:
+                    list.printReverse();
+                    break;
                 case 0:
                     System.out.println("Program selesai.");
                     break;
@@ -53,13 +57,13 @@ public class DoubleLinkedListMain10 {
     }
 
     private static Mahasiswa10 inputMahasiswa(Scanner sc) {
-        System.out.print("Masukkan NIM  :");
+        System.out.print("Masukkan NIM  : ");
         String nim = sc.nextLine();
-        System.out.print("Masukkan Nama :");
+        System.out.print("Masukkan Nama : ");
         String nama = sc.nextLine();
-        System.out.print("Masukkan Kelas:");
+        System.out.print("Masukkan Kelas: ");
         String kelas = sc.nextLine();
-        System.out.print("Masukkan IPK  :");
+        System.out.print("Masukkan IPK  : ");
         double ipk = sc.nextDouble(); sc.nextLine();
         return new Mahasiswa10(nim, nama, kelas, ipk);
     }

@@ -13,10 +13,10 @@ public class Mahasiswa10 {
 
     public void tampil() {
         System.out.println(
-            "NIM  :" + nim +
-            "\nNama :" + nama +
-            "\nKelas:" + kelas +
-            "\nIPK  :" + ipk
+            "NIM  : " + nim +
+            "\nNama : " + nama +
+            "\nKelas: " + kelas +
+            "\nIPK  : " + ipk
         );
     }
 }

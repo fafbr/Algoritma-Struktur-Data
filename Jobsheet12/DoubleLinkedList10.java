@@ -94,5 +94,18 @@ public class DoubleLinkedList10 {
                 tail = tail.prev;
                 tail.next = null;
         }
-    }       
+    }
+
+    public void printReverse() {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong.");
+            return;
+        }
+
+        Node10 current = tail;
+        while (current != null) {
+            current.data.tampil();
+            current = current.prev;
+        }
+    }
 }
