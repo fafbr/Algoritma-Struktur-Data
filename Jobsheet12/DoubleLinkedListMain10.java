@@ -36,6 +36,7 @@ public class DoubleLinkedListMain10 {
                     break;
                 case 4:
                     list.removeFirst();
+                    
                     break;
                 case 5:
                     list.removeLast();
